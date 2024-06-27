@@ -15,6 +15,8 @@ import org.hamcrest.CoreMatchers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 import static net.serenitybdd.rest.SerenityRest.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -89,7 +91,13 @@ public class NetflixService {
         LOGGER.info("Realizo la consulta de Usuarios: ");
         book.getData().forEach(x -> LOGGER.info(x.toString()));
 
-        LOGGER.info("Realizo el filtro de un Usuario: ");
+        System.out.println("#####: " + book.getPer_page());
+        List<User> usuarios = book.getData();
+        for(User usuario:usuarios){
+            System.out.println("Nombre(2): " + usuario.getFirst_name());
+        }
+
+        LOGGER.info("Realizo el filtro de un Usuario: "); //Programacion declarativa
         User data = book.getData().stream().filter(x -> x.getEmail().equals("emma.wong@reqres.in")).findAny().orElse(null);
         assert data != null;
         LOGGER.info(data.toString());
