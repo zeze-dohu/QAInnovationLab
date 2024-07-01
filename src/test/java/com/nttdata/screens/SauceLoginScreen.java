@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class SauceLoginScreen extends PageObject {
 
     @AndroidFindBy(xpath = "//android.widget.EditText[@content-desc=\"test-Username\"]")
@@ -17,6 +19,12 @@ public class SauceLoginScreen extends PageObject {
 
     @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-LOGIN\"]")
     private WebElement btnLogin;
+
+    @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-Cart drop zone\"]/android.view.ViewGroup/android.widget.TextView")
+    private WebElement tituloApp;
+
+    @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-Item\"]")
+    private List<WebElement> lista2;
 
 
     public void ingresarUsuario(String texto){
@@ -39,5 +47,22 @@ public class SauceLoginScreen extends PageObject {
 
     public void ingresar() {
         btnLogin.click();
+    }
+    public int getCountElements(){
+        //List<WebElement> lista = getDriver().findElements(By.xpath("//android.view.ViewGroup[@content-desc=\"test-Item\"]"));
+        return lista2.size();
+    }
+
+//
+    public String getTitulo() {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.view.ViewGroup[@content-desc=\"test-Cart drop zone\"]/android.view.ViewGroup/android.widget.TextView")));
+
+        //WebElement titulo2 = getDriver().findElement(By.xpath("//android.view.ViewGroup[@content-desc=\"test-Cart drop zone\"]/android.view.ViewGroup/android.widget.TextView"));
+
+        //return titulo2.getText();
+        return tituloApp.getText();
+
+
     }
 }

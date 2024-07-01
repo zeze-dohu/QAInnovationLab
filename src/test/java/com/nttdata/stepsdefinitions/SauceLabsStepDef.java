@@ -21,6 +21,10 @@ public class SauceLabsStepDef {
 
     @When("inicio sesión con mi usuario {string} y clave {string}")
     public void inicioSesiónConMiUsuarioYClave(String arg0, String arg1) {
+        login.ingresoElUsuario(arg0);
+        login.ingresarClave(arg1);
+        login.ingresar();
+
     }
 
 
@@ -33,5 +37,10 @@ public class SauceLabsStepDef {
     @And("hago clic en LOGIN")
     public void hagoClicEn() {
         login.ingresar();
+    }
+
+    @And("valido el login OK")
+    public void validoElLoginOK() {
+        login.validacionLogin();
     }
 }

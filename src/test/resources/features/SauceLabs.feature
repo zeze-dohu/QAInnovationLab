@@ -1,6 +1,8 @@
 
+@LoginTest
  Feature: Sauce Labs App
 
+   @Login1
    Scenario: Login Ok
      Given ingreso al aplicativo de SauceLabs
      When inicio sesión con mi usuario "standard_user" y clave "secret_sauce"
@@ -11,3 +13,4 @@
      When ingreso el usuario "standard_user"
      And ingreso la clave "secret_sauce"
      And hago clic en LOGIN
+     Then valido el login OK
