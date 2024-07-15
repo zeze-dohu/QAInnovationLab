@@ -1,6 +1,6 @@
 package com.everis.base.stepDefinitions;
 
-import com.everis.base.NetflixService;
+import com.everis.base.steps.NetflixService;
 //import com.everis.base.steps.NetflixSteps;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;

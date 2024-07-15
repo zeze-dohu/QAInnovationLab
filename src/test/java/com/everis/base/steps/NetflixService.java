@@ -1,8 +1,7 @@
-package com.everis.base;
+package com.everis.base.steps;
 
 import com.everis.base.models.Book;
 import com.everis.base.models.User;
-import com.everis.base.stepDefinitions.ServicioSD;
 import com.google.gson.JsonObject;
 import io.cucumber.java.Before;
 import io.restassured.RestAssured;
@@ -12,8 +11,6 @@ import io.restassured.response.Response;
 import io.restassured.specification.*;
 import net.thucydides.core.annotations.Step;
 import org.hamcrest.CoreMatchers;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
